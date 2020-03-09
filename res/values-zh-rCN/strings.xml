@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">销量统计</string>
+    <string name="setting_title">销量统计</string>
+    <string name="setting_istest">测试模式</string>
+    <string name="setting_open">打开</string>
+    <string name="setting_close">关闭</string>
+    <string name="setting_testhint">测试模式可以编辑</string>
+    <string name="setting_delay">延迟发送</string>
+    <string name="setting_interval">重发间隔时间</string>
+    <string name="setting_number">短信号码</string>
+    <string name="setting_minute">分钟</string>
+    <string name="setting_status">状态</string>
+    <string name="setting_no_sim">检测不到SIM卡</string>
+    <string name="setting_det_sim">检测到SIM卡</string>
+    <string name="setting_success">发送成功</string>
+    <string name="setting_failed">发送失败</string>
+    <string name="setting_retry">尝试发送次数：</string>
+    <string name="dialog_ok">确认</string>
+    <string name="clear_status">"清除状态"</string>
+</resources>

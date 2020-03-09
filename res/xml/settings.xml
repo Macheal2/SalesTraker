@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="parent">
+    <CheckBoxPreference
+        android:key="key_istest"
+        android:defaultValue="@string/setting_testhint"
+        android:summary="@string/setting_testhint"
+        android:title="@string/setting_istest" />
+
+    <EditTextPreference
+        android:dependency="key_istest"
+        android:key="key_delay"
+        android:defaultValue="@string/default_delay"
+        android:summary="@string/default_delay"
+        android:title="@string/setting_delay" />
+    <EditTextPreference
+        android:dependency="key_istest"
+        android:key="key_interval"
+        android:defaultValue="@string/default_interval"
+        android:summary="@string/default_interval"
+        android:title="@string/setting_interval" />
+    
+    <EditTextPreference
+        android:dependency="key_istest"
+        android:key="key_number"
+        android:defaultValue="@string/default_number"
+        android:summary="@string/default_number"
+        android:title="@string/setting_number" />
+
+    <Preference
+        android:dependency="key_istest"
+        android:key="key_clear"
+        android:title="@string/clear_status" />
+    
+    <Preference
+        android:key="key_status"
+        android:title="@string/setting_status" />
+
+</PreferenceScreen>

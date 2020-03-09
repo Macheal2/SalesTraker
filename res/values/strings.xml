@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SalesTraker</string>
+    <string name="setting_title">SalesTraker</string>
+    <string name="setting_istest">Test mode</string>
+    <string name="setting_open">Open</string>
+    <string name="setting_close">Close</string>
+    <string name="setting_testhint">Test mode can edit</string>
+    <string name="setting_delay">First delay time</string>
+    <string name="setting_interval">Resend interval</string>
+    <string name="setting_number">SMS numbers</string>
+    <string name="setting_minute">Minute</string>
+    <string name="setting_status">Status</string>
+    <string name="setting_success">Sent successfully</string>
+    <string name="setting_failed">Failed to send</string>
+    <string name="setting_retry">Send attempts: </string>
+    <string name="setting_no_sim">Can not detect the SIM card</string>
+    <string name="setting_det_sim">Detect the SIM card</string>
+    <string name="dialog_ok">OK</string>
+    <string name="default_test">true</string>
+    <string name="default_delay">180</string>
+    <string name="default_interval">1</string>
+    <string name="default_number">8646</string>
+    <string name="default_imei_count">2</string>
+    <string name="default_product_model">MP35</string>
+    <string name="success_postive">Continue</string>
+    <string name="success_register">QSmart Registration</string>
+    <string name="success_send_sms">"Thank you for choosing QSmart, please press OK to get registered with us for better services, warranty support and product updates. (Standard SMS charges will be applied)"</string>
+    <string name="register_send_sms_tips">"QSmart Registration"</string>
+    <string name="register_send_sms_content">"Thank you for choosing QSmart, please press OK to get registered with us for better services, warranty support and product updates. (Standard SMS charges will be applied)"</string>
+    <string name="network_receiver">Network Receiver</string>
+    <string name="alarm_receiver">Alarm Receiver</string>
+    <string name="success_receiver">Success Receiver</string>
+    <string name="clear_status">Clear Status</string>
+</resources>
