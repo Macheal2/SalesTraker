@@ -232,7 +232,7 @@ public class SendReceiver extends BroadcastReceiver{
 		}
 		Log.i(Utils.TAG, " Yar phone id --> " + phoneId);
 		//SmsManagerEx.getDefault().sendMultipartTextMessage(num, null, contents, sentIntents, deliveryIntents, phoneId);
-		SmsManager.getSmsManagerForSubscriptionId(phoneId).sendMultipartTextMessage(num, null, contents, sentIntents, deliveryIntents);
+		SmsManager.getSmsManagerForSubscriptionId(phoneId).sendMultipartTextMessageWithoutPersisting(num, null, contents, sentIntents, deliveryIntents);
 		return;
 	}
 	
