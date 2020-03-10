@@ -35,4 +35,22 @@ public class Utils {
     public static final String SALES_TRACKER_DELIVERY_SMS_RESULT = "com.yar.SalesTracker.DeliverySMS.Result";
     public static final String SALES_TRACKER_SEND_SMS_RESULT = "com.yar.SalesTracker.SendSMS.Result";
     public static final String SALES_TRACKER_SETTING_CHANGED = "com.yar.SalesTracker.Setting.Changed";
+	
+	public static boolean saveNvRamProinfo(int value) {
+		boolean result = false;
+		result = NvRAMAgent.setProinfo(value);
+		if (result == false) {
+			result = saveNvRamProinfo(value);
+		}
+		return result;
+	}
+	
+	public static int getNvRamProinfo() {
+		int result = -1;
+		result = NvRAMAgent.getProinfo();
+		if (result == -1) {
+			result = getNvRamProinfo();
+		}
+		return result;
+	}
 }
