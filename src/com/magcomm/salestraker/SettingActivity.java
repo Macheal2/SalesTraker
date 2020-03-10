@@ -79,15 +79,20 @@ public class SettingActivity extends PreferenceActivity implements OnSharedPrefe
         mPrefClear.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-		        SharedPreferences settings = getSharedPreferences(Utils.STORE_SETTINGS,
-		                SettingActivity.MODE_PRIVATE);
-		    	SharedPreferences.Editor editor = settings.edit();
-		        editor.putInt(Utils.ITEM_STATUS, -1);
-		        editor.putInt(Utils.ITEM_TIMES, 0);
-		        editor.commit();
+                boolean result = false;
+                result = NvRAMAgent.setProinfo(0);
+                if (result == true) {
+			        SharedPreferences settings = getSharedPreferences(Utils.STORE_SETTINGS,
+			                SettingActivity.MODE_PRIVATE);
+			    	SharedPreferences.Editor editor = settings.edit();
+			        editor.putInt(Utils.ITEM_STATUS, -1);
+			        editor.putInt(Utils.ITEM_TIMES, 0);
+			        editor.commit();
 				
-				Settings.Global.putInt(getContentResolver(), Utils.SALE_SEND, Utils.RESULT_NONE);
-                updateStatus();
+					Settings.Global.putInt(getContentResolver(), Utils.SALE_SEND, Utils.RESULT_NONE);
+	                updateStatus();
+                }
+                //mPrefClear.setSummary("proinfo: " + NvRAMAgent.getProinfo());
                 return true;
             }
         });
@@ -143,12 +148,24 @@ public class SettingActivity extends PreferenceActivity implements OnSharedPrefe
         updateStatus();
         //registerReceiver(mStatusReceiver, mIntentFilter);
     }
+	
+	private int getNvRamProinfo() {
+		int result = -1;
+		result = NvRAMAgent.getProinfo();
+		if (result == -1) {
+			result = getNvRamProinfo();
+		}
+		return result;
+	}
 
     private void updateStatus() {
         SharedPreferences settings = getSharedPreferences(Utils.STORE_SETTINGS,
                 SettingActivity.MODE_PRIVATE);
         int status = settings.getInt(Utils.ITEM_STATUS, Utils.STATUS_NONE);
-        if (status == Utils.STATUS_NONE) {
+		int proinfo = getNvRamProinfo();
+		if (proinfo == Utils.RESULT_SUCCESS) {
+            mPrefStatus.setSummary(R.string.setting_success);		
+		} else if (status == Utils.STATUS_NONE) {
             mPrefStatus.setSummary("");
         } else if (status == Utils.STATUS_NOSIM) {
             mPrefStatus.setSummary(R.string.setting_no_sim);

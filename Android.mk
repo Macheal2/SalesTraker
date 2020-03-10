@@ -6,6 +6,10 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_JAVA_LIBRARIES := telephony-common
 LOCAL_JAVA_LIBRARIES += mediatek-telephony-common
 LOCAL_JAVA_LIBRARIES += mediatek-framework
+
+LOCAL_STATIC_JAVA_LIBRARIES := \
+        vendor.mediatek.hardware.nvram-V1.0-java
+
 LOCAL_SRC_FILES := $(call all-java-files-under, src)
 
 LOCAL_PACKAGE_NAME := SalesTraker

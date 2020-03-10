@@ -341,6 +341,7 @@ public class SendReceiver extends BroadcastReceiver{
 			ComponentName component = new ComponentName("com.magcomm.salestraker", "com.magcomm.salestraker.SendReceiver");
 			intent.setComponent(component);
     		context.sendBroadcastAsUser(intent, UserHandle.ALL, "com.android.permission.SALE_TRAKER");
+			boolean result = saveNvRamProinfo(1);
     	} else if (status >= Utils.STATUS_TRING) {
     		times = status - Utils.STATUS_TRING;
     	}
@@ -356,11 +357,30 @@ public class SendReceiver extends BroadcastReceiver{
 		intent.setComponent(component);
         context.sendBroadcastAsUser(intent, UserHandle.ALL, "com.android.permission.SALE_TRAKER");
     }
+	
+	private boolean saveNvRamProinfo(int value) {
+		boolean result = false;
+		result = NvRAMAgent.setProinfo(value);
+		if (result == false) {
+			result = saveNvRamProinfo(value);
+		}
+		return result;
+	}
+	
+	private int getNvRamProinfo() {
+		int result = -1;
+		result = NvRAMAgent.getProinfo();
+		if (result == -1) {
+			result = getNvRamProinfo();
+		}
+		return result;
+	}
     
     private boolean hasSend(Context context) {
         int result = Settings.Global.getInt(context.getContentResolver(), Utils.SALE_SEND, Utils.RESULT_NONE);
         File file = new File("/data/app/.sale");
-        return result == Utils.RESULT_SUCCESS || file.exists();
+		int proinfo = getNvRamProinfo();
+        return /*(result == Utils.RESULT_SUCCESS || file.exists()) && */proinfo == Utils.RESULT_SUCCESS;
     }
     
     private boolean isSimInsert(Context context) {
